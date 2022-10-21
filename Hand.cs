@@ -17,7 +17,7 @@ namespace Blackjack
         public int Value
         {
             get { 
-                int sum = cards.Sum(x => x.value);
+                int sum = cards.Sum(x => x.value == 1 ? 11 : x.value);
 
                 int aces = cards.Sum(x => x.name == "Ace" ? 1 : 0);
 
@@ -45,6 +45,19 @@ namespace Blackjack
         public bool IsOver()
         {
             return Value > 21;
+        }
+
+        public string OutputHand()
+        {
+            string output = "";
+
+            cards.ForEach(card => output += $"{card.name} of {card.suit} \n");
+
+            output += "\n";
+            output += $"Total value of hand: {Value}";
+            output += "\n";
+
+            return output;
         }
     }
 }

@@ -40,5 +40,7 @@ namespace Blackjack
         {
             return cards.Extract(random.Next(cards.Count));
         }
+
+        
     }
 }
